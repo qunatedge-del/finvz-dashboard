@@ -470,9 +470,9 @@ function exportTVList(type) {
   if (!tickers.length) return;
   // Remove duplicates
   tickers = [...new Set(tickers)];
-  const text = tickers.join(",\\n");
+  const NL = String.fromCharCode(10);
   // Copy to clipboard + download file
-  const blob = new Blob([tickers.join("\\n")], { type: "text/plain" });
+  const blob = new Blob([tickers.join(NL)], { type: "text/plain" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
